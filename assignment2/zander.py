@@ -1,13 +1,13 @@
-def check_zander_size(size:int):
+def check_zander_size():
+    size_limit = 42  
+    length = int(input("Enter the length of the zander (in cm): "))
 
-    size_limit = 42
-    if size < size_limit:
-        print("The zander is too small. Release it back into the lake.")
-        print(f"It is {size_limit - size} cm below the size limit.")
+    if length < size_limit:
+        difference = size_limit - length
+        print("The zander is too small.")
+        print(f"Release the fish back into the lake.")
+        print(f"It is {difference} cm below the size limit.")
     else:
         print("The zander meets the size limit. You may keep it.")
 
-
-if __name__ == "__main__":
-    size = int(input("Enter the length of the zander (cm): "))
-    check_zander_size(size)
+check_zander_size()
