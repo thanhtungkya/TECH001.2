@@ -1,4 +1,4 @@
-def new_list(a:list)->list:
+def new_list(a:list[int])->list[int]:
     res = list([])
     for x in a:
         if(x % 2 == 0):
