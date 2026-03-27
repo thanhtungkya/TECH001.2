@@ -33,6 +33,5 @@ class Building:
 
 
 b = Building(1, 10, 3)
-
 b.run_elevator(0, 7)
 b.run_elevator(1, 3)

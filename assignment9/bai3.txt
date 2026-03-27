@@ -1,0 +1,10 @@
+Alice,85
+Bob,92
+Charlie,78
+Diana,90
+Eve,88.5
+Frank,74
+Grace,96
+Huy,81
+Linh,89
+Minh,73
