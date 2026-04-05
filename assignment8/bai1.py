@@ -23,4 +23,3 @@ class Elevator:
 e = Elevator(1, 10)
 
 e.go_to_floor(5)
-e.go_to_floor(1)
