@@ -1,0 +1,14 @@
+[
+  {
+    "ident": "LFLL",
+    "name": "Lyon Saint-Exupery Airport",
+    "municipality": "Lyon",
+    "iso_country": "FR"
+  },
+  {
+    "ident": "EFHK",
+    "name": "Helsinki Vantaa Airport",
+    "municipality": "Helsinki",
+    "iso_country": "FI"
+  }
+]

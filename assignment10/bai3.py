@@ -20,12 +20,3 @@ def kiem_tra(so):
 
 
 app.run(debug=True)
-#data type
-#var
-#loop(for, while, range(start:stop:step))
-#if else
-#function
-#string
-#regular expression
-#class(association, Aggregation, ke thua, da hinh, truu tuong, dong goi)
-#API, backend service.

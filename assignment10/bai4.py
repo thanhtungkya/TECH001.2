@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from functools import lru_cache
 
 from flask import Flask, jsonify
 
@@ -8,9 +9,22 @@ app = Flask(__name__)
 AIRPORTS_FILE = Path(__file__).with_name("airports.json")
 
 
+@lru_cache(maxsize=1)
 def load_airports():
     with AIRPORTS_FILE.open("r", encoding="utf-8") as file:
-        return json.load(file)
+        data = json.load(file)
+
+    # Support either a plain airport list or a wrapped object structure.
+    if isinstance(data, dict):
+        for key in ("airports", "items", "data"):
+            if isinstance(data.get(key), list):
+                return data[key]
+        return []
+
+    if isinstance(data, list):
+        return data
+
+    return []
 
 
 def find_airport_by_icao(icao):
@@ -21,7 +35,7 @@ def find_airport_by_icao(icao):
         airport_icao = airport.get("icao") or airport.get("ident")
         if airport_icao and airport_icao.upper() == target_icao:
             return {
-                "icao": airport_icao,
+                "icao": airport_icao.upper(),
                 "name": airport.get("name"),
                 "city": airport.get("municipality") or airport.get("city"),
                 "country": airport.get("iso_country") or airport.get("country"),
